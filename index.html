@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Apartment Building Architecture | HOOPS Web Viewer</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="chrome=1;IE=edge" />
+  <meta name="viewport" content="user-scalable=no" />
+
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-PB9P4KS');</script>
+  <!-- End Google Tag Manager -->
+  <link rel="stylesheet" href="stylesheets/style.css" />
+  <link rel="stylesheet" href="stylesheets/jquery-ui-1.8.18.custom.css" />
+  <link rel="stylesheet" href="stylesheets/iCheck/_all.css" />
+  <link rel="stylesheet" href="stylesheets/drop-down.css" />
+
+  <link rel="stylesheet" href="stylesheets/TS3D_webfonts.css" />
+  <link rel="stylesheet" href="stylesheets/ts3d_template.css" />
+
+  <script type="text/javascript" src="javascripts/communicator_scripts/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="javascripts/jquery.icheck.min.js"></script>
+  <script type="text/javascript" src="javascripts/jquery.ui.touch-punch.min.js"></script>
+
+
+  <script type="text/javascript"
+    src="https://cdn.jsdelivr.net/gh/techsoft3d/hoops-web-viewer@2022.2.0/hoops_web_viewer.js?v=2022.2.0"></script>
+
+  <script type="text/javascript" src="javascripts/communicator_scripts/web_viewer_ui.js?v=2022.2.0" id="hwvUI"></script>
+  <script type="text/javascript"
+    src="javascripts/communicator_scripts/communicator_server_integration.js?v=2022.2.0"></script>
+  <script type="text/javascript" src="javascripts/communicator_scripts/sample.js?v=2022.2.0"></script>
+
+  <script type="text/javascript" src="javascripts/bim_demo.js?v=2022.2.0"></script>
+  <script type="text/javascript" src="javascripts/jquery-ui-1.10.3.min.js"></script>
+  <script type="text/javascript" src="javascripts/conversionService.js"></script>
+
+  <script>
+    var viewer = null;
+    var ui = null;
+  </script>
+
+
+  <script type="module">
+
+    viewer = await startViewer()
+
+    viewer.setCallbacks({
+      sceneReady: function () {
+        viewer.getSelectionManager().setHighlightNodeSelection(false);
+        viewer.getSelectionManager().setHighlightLineElementSelection(false);
+        viewer.getSelectionManager().setHighlightFaceElementSelection(false);
+        viewer.getSelectionManager().setSelectParentIfSelected(false);
+        viewer.getView().setAmbientOcclusionEnabled(true);
+        viewer.getView().setAmbientOcclusionRadius(0.02);
+        viewer.getView().setBackfacesVisible(true);
+        viewer.setClientTimeout(60, 60);
+        var newCam = viewer.getView().getCamera();
+        newCam.setWidth(65000);
+        newCam.setHeight(65000);
+        newCam.setPosition(new Communicator.Point3(-53469, -23219, 30264));
+        newCam.setTarget(new Communicator.Point3(-636, -1873, 18152));
+        newCam.setUp(
+          new Communicator.Point3(
+            0.19277308590766995,
+            0.07788537845601243,
+            0.9781474352940858
+          )
+        );
+        viewer.getView().setCamera(newCam);
+        viewer.getView().setDrawMode(Communicator.DrawMode.Shaded);
+
+        var op = viewer.operatorManager.getOperator(Communicator.OperatorId.Navigate)
+        op.setOrbitFallbackMode(Communicator.OrbitFallbackMode.CameraTarget)
+
+        menuToggle()
+      },
+      modelStructureReady: function () {
+        initDemo();
+        getFloors(3);
+      },
+    });
+
+    // viewer.start();
+    window.onresize = function () {
+      viewer.resizeCanvas();
+    };
+    // });
+  </script>
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PB9P4KS" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div id="ts3d_wrapper">
+    <header id="ts3d_header">
+      <div id="ts3d_title_wrapper">
+        <span id="ts3d_title">
+          <a href="https://techsoft3d.com/products/hoops-toolkits/hoops-communicator/">HOOPS Communicator</a>
+        </span>
+        <span id="ts3d_subtitle">| BIM Demo</span>
+      </div>
+      <div id="ts3d_logo_wrapper">
+        <a href="https://techsoft3d.com/"><img style="image-rendering: -webkit-optimize-contrast;"
+            src="stylesheets/images/TechSoft_3D_Logo_lg.png" id="ts3d_logo" /></a>
+      </div>
+    </header>
+    <section id="ts3d_body">
+      <div id="viewer-container"></div>
+
+      <div class="dropdown">
+        <button class="drop-button">Views</button>
+        <div class="dropdown-content">
+          <a href="#!" onclick="toggleView(0)">
+            <div class="dropdown-text">
+              Default View
+            </div>
+          </a>
+          <a href="#!" onclick="toggleView(1)">
+            <div class="dropdown-text">
+              Kitchen
+            </div>
+          </a>
+          <a href="#!" onclick="toggleView(2)">
+            <div class="dropdown-text">
+              Bathroom
+            </div>
+          </a>
+          <a href="#!" onclick="toggleView(3)">
+            <div class="dropdown-text">
+              Roof 1
+            </div>
+          </a>
+          <a href="#!" onclick="toggleView(4)">
+            <div class="dropdown-text">
+              Roof 2
+            </div>
+          </a>
+          <a href="#!" onclick="toggleView(5)">
+            <div class="dropdown-text">
+              Garage
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div id="menuIconContainer">
+        <img id="menuIcon" class="menuCollapse" src="stylesheets/images/down-arrow.jpg" alt="menu"
+          onclick="menuToggle()" />
+      </div>
+      <div class="title rightside">
+        <p><span style="color: #000">MODEL</span> BROWSER</p>
+      </div>
+      <div id="rightside" class="rightside">
+        <div id="menuTabs">
+          <div id="tabArchitectural" class="selected">
+            <p>
+              <a href="#" onclick="toggleArchitectural()">ARCHITECTURAL</a>
+            </p>
+          </div>
+          <div id="tabStructural">
+            <p><a href="#" onclick="toggleStructural()">STRUCTURAL</a></p>
+          </div>
+        </div>
+        <div id="timelinePanel">
+          <img id="timelineCheckboxImg" class="timelineUnchecked" src="stylesheets/images/unchecked-box-new.png"
+            onclick="ConstructionClick();" />
+          <span>Timeline Viewer</span>
+          <input id="timelineCheckbox" type="checkbox" style="display: none" />
+          <div id="timelineControls" style="display: none">
+            <div>
+              <label for="timeline"></label>
+            </div>
+            <div>
+              <div id="timelineSlider"></div>
+              <input type="text" id="timeline" class="construction-days" readonly="readonly" disabled />
+              <button id="autoplayCheckbox" class="autoplayUnChecked" onclick="autoplayClick();">
+                <img id="playImg" src="stylesheets/images/play.png" alt="Play" />
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="floorspanel">
+          <ol id="notselectable">
+            <li class="ui-widget-content ui-selected">All Floors</li>
+          </ol>
+          <ol id="selectable">
+            <li class="ui-widget-content ui-selected subfloor">Story 12</li>
+            <li class="ui-widget-content ui-selected subfloor">Story 11</li>
+            <li class="ui-widget-content ui-selected subfloor">Story 10</li>
+            <li class="ui-widget-content ui-selected subfloor">Story 9</li>
+            <li class="ui-widget-content ui-selected subfloor">Story 8</li>
+            <li class="ui-widget-content ui-selected subfloor">Story 7</li>
+            <li class="ui-widget-content ui-selected subfloor">Story 6</li>
+            <li class="ui-widget-content ui-selected subfloor">Story 5</li>
+            <li class="ui-widget-content ui-selected subfloor">Story 4</li>
+            <li class="ui-widget-content ui-selected subfloor">Story 3</li>
+            <li class="ui-widget-content ui-selected subfloor">Story 2</li>
+            <li class="ui-widget-content ui-selected subfloor">Story 1</li>
+            <li class="ui-widget-content ui-selected subfloor">Parking 2</li>
+            <li class="ui-widget-content ui-selected subfloor">Parking 1</li>
+            <li class="ui-widget-content ui-selected subfloor">Other</li>
+          </ol>
+        </div>
+        <div id="itempanel">
+          <ol id="notselectableStructure">
+            <li class="ui-widget-content ui-selected">All Domains</li>
+          </ol>
+          <ol id="selectableStructure">
+            <li class="ui-widget-content ifcelements ui-selected subdomain">
+              IFCROOF
+            </li>
+            <li class="ui-widget-content ifcelements ui-selected subdomain">
+              IFCTRANSPORTELEMENT
+            </li>
+            <li class="ui-widget-content ifcelements ui-selected subdomain">
+              IFCSLAB
+            </li>
+            <li class="ui-widget-content ifcelements ui-selected subdomain">
+              IFCWINDOW
+            </li>
+            <li class="ui-widget-content ifcelements ui-selected subdomain">
+              IFCBEAM
+            </li>
+            <li class="ui-widget-content ifcelements ui-selected subdomain">
+              IFCDOOR
+            </li>
+            <li class="ui-widget-content ifcelements ui-selected subdomain">
+              IFCCOLUMN
+            </li>
+            <li class="ui-widget-content ifcelements ui-selected subdomain">
+              IFCRAILING
+            </li>
+            <li class="ui-widget-content ifcelements ui-selected subdomain">
+              IFCFOOTING
+            </li>
+            <li class="ui-widget-content ifcelements ui-selected subdomain">
+              IFCFLOWTERMINAL
+            </li>
+            <li class="ui-widget-content ifcelements ui-selected subdomain">
+              IFCSTAIR
+            </li>
+            <li class="ui-widget-content ifcelements ui-selected subdomain">
+              IFCCOVERING
+            </li>
+            <li class="ui-widget-content ifcelements ui-selected subdomain">
+              IFCFURNISHINGELEMENT
+            </li>
+            <li class="ui-widget-content ifcelements ui-selected subdomain">
+              IFCCURTAINWALL
+            </li>
+            <li class="ui-widget-content ifcelements ui-selected subdomain">
+              IFCWALL
+            </li>
+            <li class="ui-widget-content ifcelements ui-selected subdomain">
+              IFCWALLSTANDARDCASE
+            </li>
+            <li class="ui-widget-content ifcelements ui-selected subdomain">
+              IFCBUILDINGELEMENTPROXY
+            </li>
+            <li class="ui-widget-content ifcelements ui-selected subdomain">
+              IFCRAMP
+            </li>
+            <li class="ui-widget-content ifcelements ui-selected subdomain">
+              IFCFLOWMOVINGDEVICE
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+
+</html>

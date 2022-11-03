@@ -1,0 +1,537 @@
+#feedback {
+  font-size: 1.4em;
+}
+
+#selectable .ui-selecting,
+#selectableStructure .ui-selecting {
+  background: #feca40;
+}
+
+#selectable .ui-selected,
+#selectableStructure .ui-selected {
+  background: #f39814;
+  color: white;
+}
+
+#selectable,
+#notselectable,
+#selectableStructure,
+#notselectableStructure {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 60%;
+}
+
+#selectable li,
+#selectableStructure li {
+  margin: 3px;
+  padding: 0.4em;
+  font-size: 1.4em;
+  height: 18px;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  /*overflow: hidden;*/
+  background: #bcbcbc;
+}
+
+#EvaluateNow,
+#ToggleViewLink {
+  left: 1%;
+  top: 25px;
+  position: relative;
+  background: #01a9db;
+  color: white;
+  border: 0;
+  padding: 10px;
+  font-size: 1.5em;
+  text-decoration: none;
+}
+
+#menuIconContainer {
+  right: 2%;
+  top: 98px;
+  position: absolute;
+  z-index: 999;
+  margin: 10px 28px 10px 10px;
+  background-color: #fff;
+}
+
+#theCanvas {
+  background: #bcbcbc; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(
+    #e2e2e2,
+    #898989
+  ); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#e2e2e2, #898989); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(
+    #e2e2e2,
+    #898989
+  ); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(
+    #e2e2e2,
+    #898989
+  ); /* Standard syntax (must be last) */
+}
+.logo {
+  font-size: 2em;
+  line-height: 52px;
+  margin-left: 45px;
+  border-right: 1px solid #000;
+  padding-right: 15px;
+  float: left;
+  margin-top: 14px;
+}
+.logo a {
+  text-decoration: none;
+  color: #000;
+}
+.manufacturing-subtext {
+  font-size: 20px;
+  margin-left: 15px;
+  padding-top: 30px;
+  float: left;
+}
+#rightside {
+  display: none;
+  right: 3%;
+  top: 172px;
+  position: absolute;
+  background-color: #fff;
+  max-height: 74%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 350px;
+  z-index: 99999;
+}
+.title p {
+  margin: 24px 15px 20px 20px;
+  color: #c6cacd;
+  font-size: 24px;
+}
+.top-bar {
+  background-color: #fff;
+  box-shadow: 0px 0px 5px #bababa;
+  height: 80px;
+  width: 100%;
+  position: relative;
+}
+.top-bar img {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+#timelinePanel {
+  background: #e9ebec;
+  font-size: 16px;
+  border-bottom: 2px solid #bfc3c4;
+  color: #6e797d;
+  /*cursor:pointer;*/
+  text-transform: uppercase;
+  padding: 15px 26px;
+  line-height: 25px;
+  opacity: 1;
+}
+
+#timelineCheckboxImg {
+  cursor: pointer;
+  vertical-align: text-bottom;
+}
+
+#timelineSlider {
+  width: 200px;
+  font-size: 5px;
+  background: #abb1b5;
+  cursor: pointer;
+  font-family: arial;
+  margin-top: 24px;
+  margin-bottom: 20px;
+  margin-left: 41px;
+}
+#timelineSlider.ui-slider-horizontal .ui-slider-handle {
+  background: #6e787e;
+  height: 30px;
+  cursor: pointer;
+  margin-top: -12px;
+  border: 0px solid transparent;
+  border-radius: 0px;
+  width: 12px;
+}
+.timeline-check {
+  float: left;
+  margin-top: -8px;
+}
+
+#menuTabs {
+  width: 100%;
+  border-top: 2px solid #bfc3c4;
+  border-bottom: 2px solid #bfc3c4;
+  background-color: #e9ebec;
+  margin-top: 0px;
+}
+#menuTabs p {
+  line-height: 57px;
+  margin: 0px;
+}
+#menuTabs p a {
+  color: #6e797d;
+}
+
+#menuTabs div {
+  width: 49%;
+  display: inline-block;
+  height: 55px;
+  text-align: center;
+}
+#menuTabs div:hover {
+  background-color: #fff;
+}
+#menuTabs div:hover a {
+  font-weight: bold;
+}
+
+#menuTabs div.selected {
+  background-color: #fff;
+}
+
+#menuTabs div a {
+  text-decoration: none;
+  font-size: 14px;
+  display: block;
+}
+#menuTabs div.selected a {
+  font-weight: bold;
+}
+
+.construction-days {
+  width: 90px;
+  border: 0;
+  color: #6e787e;
+  background-color: transparent;
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 30px;
+  height: 34px;
+  margin-left: 75px;
+  margin-right: 10px;
+}
+
+#autoplayCheckbox {
+  cursor: pointer;
+  width: 42px;
+  height: 34px;
+  align-self: center;
+  border-radius: 8px;
+  vertical-align: middle;
+  outline: none;
+}
+
+#playImg {
+  width: 29px;
+  height: 29px;
+  vertical-align: middle;
+}
+
+#timelineSlider ::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  display: block;
+  /*background-color: #ff0000;*/
+}
+
+#selectable,
+#notselectable,
+#notselectableStructure,
+#selectableStructure {
+  width: 335px;
+  cursor: pointer;
+  list-style: none;
+}
+
+#itempanel {
+  display: none;
+  width: 335px;
+  cursor: pointer;
+}
+
+#selectable li,
+#selectableStructure li {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+#notselectable li,
+#selectableStructure li,
+#notselectableStructure li {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.architecturalSelect {
+  height: 20px;
+  width: 20px;
+  display: block;
+  float: right;
+  background-image: url("/demos/apartment-building-architecture/images/unchecked.png");
+  background-size: cover;
+  /*margin-top: -28px;
+  margin-right: 10px;*/
+}
+
+.ui-selected .architecturalSelect {
+  background-image: url("/demos/apartment-building-architecture/images/checked.png");
+  background-size: cover;
+}
+
+#selectable li.subfloor {
+  margin-left: 10px;
+}
+
+#selectableStructure li.subdomain {
+  margin-left: 10px;
+}
+
+#bottomNavWrap {
+  width: 100%;
+  position: absolute;
+  bottom: 20px;
+}
+
+#bottomNav {
+  width: 565px;
+  margin: auto;
+}
+
+#CSRButton,
+#SSRButton {
+  display: inline-block;
+  text-align: center;
+}
+
+#bottomNav a {
+  text-decoration: none;
+  color: initial;
+}
+
+#bottomNav .active {
+  border-bottom: 4px solid #f39814;
+}
+
+#selectable li,
+#selectableStructure li {
+  background: url("/demos/apartment-building-architecture/images/unchecked-box-new.png")
+    no-repeat 27px/23px !important;
+  font-size: 16px;
+  /*text-transform: uppercase;*/
+  color: #6e787e !important;
+  border-bottom: 2px solid #bfc3c4;
+  margin: 0px;
+  padding: 15px 40px 15px 60px;
+}
+
+#notselectable li,
+#notselectableStructure li {
+  background: url("/demos/apartment-building-architecture/images/unchecked-box-new.png")
+    no-repeat 27px/23px !important;
+  font-size: 16px;
+  /*text-transform: uppercase;*/
+  color: #6e787e !important;
+  border-bottom: 2px solid #bfc3c4;
+  margin: 0px;
+  padding: 15px 40px 15px 60px;
+}
+
+#selectable li.ui-selected,
+#selectableStructure li.ui-selected {
+  background: url("/demos/apartment-building-architecture/images/check-box-new.png")
+    no-repeat 27px/23px #fff !important;
+}
+
+#notselectable li.ui-selected,
+#notselectableStructure li.ui-selected {
+  background: url("/demos/apartment-building-architecture/images/check-box-new.png")
+    no-repeat 27px/23px #fff !important;
+}
+
+.ts-struct {
+  font-size: 16px;
+  /*text-transform: uppercase;*/
+  color: #6e787e !important;
+  border-bottom: 2px solid #bfc3c4;
+  margin: 0px;
+  padding: 15px 40px 15px 20px;
+  background-color: #fff;
+}
+.icheckbox_square-blue {
+  position: relative;
+  float: left;
+  background: url("/demos/apartment-building-architecture/images/unchecked-box-new.png")
+    no-repeat 0px #fff !important;
+  width: 27px;
+  height: 23px;
+  background-position: 0 0 !important;
+  margin-right: 20px;
+}
+.icheckbox_square-blue.checked {
+  background: url("/demos/apartment-building-architecture/images/check-box-new.png")
+    no-repeat 0px #fff !important;
+}
+#CSRButton,
+#SSRButton {
+  display: inline;
+}
+#CSRButton a,
+#SSRButton a {
+  padding: 15px 40px;
+  color: #6e787e;
+  background-color: #e9ebec;
+  font-size: 16px;
+}
+#CSRButton a:hover,
+#SSRButton a:hover {
+  background-color: #fff;
+}
+.title {
+  background-color: #fff;
+  position: fixed;
+  height: 72px;
+  z-index: 100;
+  display: none;
+  right: 3%;
+  top: 100px;
+  margin-top: 3px;
+  width: 350px;
+}
+
+@media only screen and (min-width: 768px) {
+  #menuIconContainer {
+    width: 20px;
+    height: 20px;
+  }
+  #menuIconContainer img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+@media only screen and (max-width: 1023px) {
+  #rightside {
+    max-height: 64%;
+  }
+  ::-webkit-scrollbar {
+    width: 25px;
+  }
+  ::-webkit-scrollbar-track {
+    border: 2px solid #bfc3c4;
+    border-radius: 0px;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 0px;
+    background-color: #bfc3c4;
+  }
+}
+@media only screen and (max-width: 767px) {
+  #menuIconContainer {
+    width: 35px;
+    height: 35px;
+    right: 0px;
+    top: 81px;
+    margin: 0px;
+  }
+
+  #menuIconContainer img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  .manufacturing-subtext {
+    font-size: 14px;
+    font-weight: 700;
+    padding-top: 32px;
+    margin-left: 8px;
+  }
+  .logo {
+    font-size: 14px;
+    margin-left: 8px;
+    padding-right: 8px;
+    margin-top: 0px;
+  }
+  .top-bar img {
+    right: 8px;
+    max-width: 40%;
+    top: 20px;
+  }
+  #bottomNav {
+    width: 100%;
+  }
+  #CSRButton,
+  #SSRButton {
+    max-width: 50%;
+    display: block;
+    width: 500px;
+    float: left;
+  }
+  #bottomNavWrap {
+    bottom: 3px;
+    height: 18px;
+    padding: 14px 0px;
+    background-color: #e9ebec;
+  }
+  #CSRButton {
+    margin-bottom: 33px;
+  }
+  #EvaluateNow {
+    left: 0px;
+    top: 10px;
+  }
+  #ToggleViewButton {
+    left: 10px;
+    top: 20px;
+  }
+  .logo,
+  .manufacturing-subtext {
+    float: none;
+    padding-top: 0px;
+  }
+  .logo {
+    line-height: 38px;
+    border-right: 0px solid transparent;
+  }
+  .top-bar {
+    height: 65px;
+  }
+  #CSRButton a,
+  #SSRButton a {
+    padding: 13px 8px 15px 8px;
+    font-size: 14px;
+  }
+  .title {
+    right: auto;
+    top: 66px;
+    width: 100%;
+  }
+  #rightside {
+    right: auto;
+    width: 100%;
+    top: 138px;
+    max-height: 67%;
+  }
+  #timelineSlider.ui-slider-horizontal .ui-slider-handle {
+    width: 25px;
+    height: 50px;
+    margin-top: -22px;
+  }
+  .timeline-check {
+    zoom: 150%;
+    margin-top: -12px;
+    margin-right: -6px;
+  }
+  #timelinePanel {
+    line-height: 48px;
+    padding: 12px 26px;
+    opacity: 1;
+  }
+}
