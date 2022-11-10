@@ -528,13 +528,13 @@ function menuToggle() {
   {
     $("#menuIcon").removeClass("menuCollapse");
     $("#menuIcon").addClass("menuExpand");
-    $("#menuIcon").attr("src", "/demos/apartment-building-architecture/images/up-arrow.jpg");
+    $("#menuIcon").attr("src", "stylesheets/images/up-arrow.jpg");
     //$("#menuIcon").attr("src", "/css/images/modelbrowser_collapse.png");
   }
   else {
     $("#menuIcon").removeClass("menuExpand");
     $("#menuIcon").addClass("menuCollapse");
-    $("#menuIcon").attr("src", "/demos/apartment-building-architecture/images/down-arrow.jpg");
+    $("#menuIcon").attr("src", "stylesheets/images/down-arrow.jpg");
     //$("#menuIcon").attr("src", "/css/images/modelbrowser_expand.png");
   }
 }
@@ -567,13 +567,13 @@ function ConstructionClick() {
         $("#timelineControls").show();
         $("#timelineCheckboxImg").removeClass("timelineUnchecked");
         $("#timelineCheckboxImg").addClass("timelineChecked");
-        $("#timelineCheckboxImg").attr("src", "/demos/apartment-building-architecture/images/check-box-new.png");
+        $("#timelineCheckboxImg").attr("src", "stylesheets/images/check-box-new.png");
         $("#timelineCheckbox").attr("checked", "checked");
     } else {
         $("#timelineControls").hide();
         $("#timelineCheckboxImg").removeClass("timelineChecked");
         $("#timelineCheckboxImg").addClass("timelineUnchecked");
-        $("#timelineCheckboxImg").attr("src", "/demos/apartment-building-architecture/images/unchecked-box-new.png");
+        $("#timelineCheckboxImg").attr("src", "stylesheets/images/unchecked-box-new.png");
         $("#timelineCheckbox").removeAttr("checked");
         if ($("#autoplayCheckbox").hasClass("autoplayChecked")) {
             clearInterval(acOn);
@@ -589,13 +589,13 @@ function autoplayClick() {
   {
     $("#autoplayCheckbox").removeClass("autoplayUnChecked");
     $("#autoplayCheckbox").addClass("autoplayChecked");
-    $("#playImg").attr("src", "/demos/apartment-building-architecture/images/pause.png");
+    $("#playImg").attr("src", "stylesheets/images/pause.png");
     acOn = setInterval(autoplay, 500);
   }
   else {
     $("#autoplayCheckbox").removeClass("autoplayChecked");
     $("#autoplayCheckbox").addClass("autoplayUnChecked");
-    $("#playImg").attr("src", "/demos/apartment-building-architecture/images/play.png");
+    $("#playImg").attr("src", "stylesheets/images/play.png");
     clearInterval(acOn);
   }
 }
@@ -744,12 +744,12 @@ $(document).ready(function (e) {
 
 
    $("#timelinePanel #construction").unbind("click").bind("click", function () {
-     if ($("#constructionArrow").attr("src") == "/demos/apartment-building-architecture/images/arrow_down.png")
+     if ($("#constructionArrow").attr("src") == "stylesheets/images/arrow_down.png")
      {
-       $("#constructionArrow").attr("src", "/demos/apartment-building-architecture/images/arrow_up.png");
+       $("#constructionArrow").attr("src", "stylesheets/images/arrow_up.png");
      }
      else {
-       $("#constructionArrow").attr("src", "/demos/apartment-building-architecture/images/arrow_down.png");
+       $("#constructionArrow").attr("src", "stylesheets/images/arrow_down.png");
      }
      $("#ConstructionExpand").toggle();
    });

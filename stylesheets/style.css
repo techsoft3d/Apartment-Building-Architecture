@@ -30,6 +30,7 @@
   font-size: 1.4em;
   height: 18px;
 }
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   /*overflow: hidden;*/
@@ -59,21 +60,21 @@ body {
 }
 
 #theCanvas {
-  background: #bcbcbc; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(
-    #e2e2e2,
-    #898989
-  ); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(#e2e2e2, #898989); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(
-    #e2e2e2,
-    #898989
-  ); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(
-    #e2e2e2,
-    #898989
-  ); /* Standard syntax (must be last) */
+  background: #bcbcbc;
+  /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(#e2e2e2,
+      #898989);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#e2e2e2, #898989);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#e2e2e2,
+      #898989);
+  /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#e2e2e2,
+      #898989);
+  /* Standard syntax (must be last) */
 }
+
 .logo {
   font-size: 2em;
   line-height: 52px;
@@ -83,16 +84,19 @@ body {
   float: left;
   margin-top: 14px;
 }
+
 .logo a {
   text-decoration: none;
   color: #000;
 }
+
 .manufacturing-subtext {
   font-size: 20px;
   margin-left: 15px;
   padding-top: 30px;
   float: left;
 }
+
 #rightside {
   display: none;
   right: 3%;
@@ -105,11 +109,13 @@ body {
   width: 350px;
   z-index: 99999;
 }
+
 .title p {
   margin: 24px 15px 20px 20px;
   color: #c6cacd;
   font-size: 24px;
 }
+
 .top-bar {
   background-color: #fff;
   box-shadow: 0px 0px 5px #bababa;
@@ -117,6 +123,7 @@ body {
   width: 100%;
   position: relative;
 }
+
 .top-bar img {
   position: absolute;
   right: 20px;
@@ -150,6 +157,7 @@ body {
   margin-bottom: 20px;
   margin-left: 41px;
 }
+
 #timelineSlider.ui-slider-horizontal .ui-slider-handle {
   background: #6e787e;
   height: 30px;
@@ -159,6 +167,7 @@ body {
   border-radius: 0px;
   width: 12px;
 }
+
 .timeline-check {
   float: left;
   margin-top: -8px;
@@ -171,10 +180,12 @@ body {
   background-color: #e9ebec;
   margin-top: 0px;
 }
+
 #menuTabs p {
   line-height: 57px;
   margin: 0px;
 }
+
 #menuTabs p a {
   color: #6e797d;
 }
@@ -185,9 +196,11 @@ body {
   height: 55px;
   text-align: center;
 }
+
 #menuTabs div:hover {
   background-color: #fff;
 }
+
 #menuTabs div:hover a {
   font-weight: bold;
 }
@@ -201,6 +214,7 @@ body {
   font-size: 14px;
   display: block;
 }
+
 #menuTabs div.selected a {
   font-weight: bold;
 }
@@ -277,14 +291,14 @@ body {
   width: 20px;
   display: block;
   float: right;
-  background-image: url("/demos/apartment-building-architecture/images/unchecked.png");
+  background-image: url("images/unchecked.png");
   background-size: cover;
   /*margin-top: -28px;
   margin-right: 10px;*/
 }
 
 .ui-selected .architecturalSelect {
-  background-image: url("/demos/apartment-building-architecture/images/checked.png");
+  background-image: url("images/checked.png");
   background-size: cover;
 }
 
@@ -324,8 +338,7 @@ body {
 
 #selectable li,
 #selectableStructure li {
-  background: url("/demos/apartment-building-architecture/images/unchecked-box-new.png")
-    no-repeat 27px/23px !important;
+  background: url("images/unchecked-box-new.png") no-repeat 27px/23px !important;
   font-size: 16px;
   /*text-transform: uppercase;*/
   color: #6e787e !important;
@@ -336,8 +349,7 @@ body {
 
 #notselectable li,
 #notselectableStructure li {
-  background: url("/demos/apartment-building-architecture/images/unchecked-box-new.png")
-    no-repeat 27px/23px !important;
+  background: url("images/unchecked-box-new.png") no-repeat 27px/23px !important;
   font-size: 16px;
   /*text-transform: uppercase;*/
   color: #6e787e !important;
@@ -348,14 +360,12 @@ body {
 
 #selectable li.ui-selected,
 #selectableStructure li.ui-selected {
-  background: url("/demos/apartment-building-architecture/images/check-box-new.png")
-    no-repeat 27px/23px #fff !important;
+  background: url("images/check-box-new.png") no-repeat 27px/23px #fff !important;
 }
 
 #notselectable li.ui-selected,
 #notselectableStructure li.ui-selected {
-  background: url("/demos/apartment-building-architecture/images/check-box-new.png")
-    no-repeat 27px/23px #fff !important;
+  background: url("images/check-box-new.png") no-repeat 27px/23px #fff !important;
 }
 
 .ts-struct {
@@ -367,24 +377,26 @@ body {
   padding: 15px 40px 15px 20px;
   background-color: #fff;
 }
+
 .icheckbox_square-blue {
   position: relative;
   float: left;
-  background: url("/demos/apartment-building-architecture/images/unchecked-box-new.png")
-    no-repeat 0px #fff !important;
+  background: url("images/unchecked-box-new.png") no-repeat 0px #fff !important;
   width: 27px;
   height: 23px;
   background-position: 0 0 !important;
   margin-right: 20px;
 }
+
 .icheckbox_square-blue.checked {
-  background: url("/demos/apartment-building-architecture/images/check-box-new.png")
-    no-repeat 0px #fff !important;
+  background: url("images/check-box-new.png") no-repeat 0px #fff !important;
 }
+
 #CSRButton,
 #SSRButton {
   display: inline;
 }
+
 #CSRButton a,
 #SSRButton a {
   padding: 15px 40px;
@@ -392,10 +404,12 @@ body {
   background-color: #e9ebec;
   font-size: 16px;
 }
+
 #CSRButton a:hover,
 #SSRButton a:hover {
   background-color: #fff;
 }
+
 .title {
   background-color: #fff;
   position: fixed;
@@ -413,27 +427,33 @@ body {
     width: 20px;
     height: 20px;
   }
+
   #menuIconContainer img {
     max-width: 100%;
     max-height: 100%;
   }
 }
+
 @media only screen and (max-width: 1023px) {
   #rightside {
     max-height: 64%;
   }
+
   ::-webkit-scrollbar {
     width: 25px;
   }
+
   ::-webkit-scrollbar-track {
     border: 2px solid #bfc3c4;
     border-radius: 0px;
   }
+
   ::-webkit-scrollbar-thumb {
     border-radius: 0px;
     background-color: #bfc3c4;
   }
 }
+
 @media only screen and (max-width: 767px) {
   #menuIconContainer {
     width: 35px;
@@ -447,26 +467,31 @@ body {
     max-width: 100%;
     max-height: 100%;
   }
+
   .manufacturing-subtext {
     font-size: 14px;
     font-weight: 700;
     padding-top: 32px;
     margin-left: 8px;
   }
+
   .logo {
     font-size: 14px;
     margin-left: 8px;
     padding-right: 8px;
     margin-top: 0px;
   }
+
   .top-bar img {
     right: 8px;
     max-width: 40%;
     top: 20px;
   }
+
   #bottomNav {
     width: 100%;
   }
+
   #CSRButton,
   #SSRButton {
     max-width: 50%;
@@ -474,61 +499,74 @@ body {
     width: 500px;
     float: left;
   }
+
   #bottomNavWrap {
     bottom: 3px;
     height: 18px;
     padding: 14px 0px;
     background-color: #e9ebec;
   }
+
   #CSRButton {
     margin-bottom: 33px;
   }
+
   #EvaluateNow {
     left: 0px;
     top: 10px;
   }
+
   #ToggleViewButton {
     left: 10px;
     top: 20px;
   }
+
   .logo,
   .manufacturing-subtext {
     float: none;
     padding-top: 0px;
   }
+
   .logo {
     line-height: 38px;
     border-right: 0px solid transparent;
   }
+
   .top-bar {
     height: 65px;
   }
+
   #CSRButton a,
   #SSRButton a {
     padding: 13px 8px 15px 8px;
     font-size: 14px;
   }
+
   .title {
     right: auto;
     top: 66px;
     width: 100%;
   }
+
   #rightside {
     right: auto;
     width: 100%;
     top: 138px;
     max-height: 67%;
   }
+
   #timelineSlider.ui-slider-horizontal .ui-slider-handle {
     width: 25px;
     height: 50px;
     margin-top: -22px;
   }
+
   .timeline-check {
     zoom: 150%;
     margin-top: -12px;
     margin-right: -6px;
   }
+
   #timelinePanel {
     line-height: 48px;
     padding: 12px 26px;
