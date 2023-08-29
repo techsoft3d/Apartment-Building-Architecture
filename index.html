@@ -28,19 +28,10 @@
   <script type="text/javascript" src="javascripts/communicator_scripts/jquery-3.3.1.min.js"></script>
   <script type="text/javascript" src="javascripts/jquery.icheck.min.js"></script>
   <script type="text/javascript" src="javascripts/jquery.ui.touch-punch.min.js"></script>
-
-
-  <script type="text/javascript"
-    src="https://cdn.jsdelivr.net/gh/techsoft3d/hoops-web-viewer/hoops_web_viewer.js"></script>
-
-  <script type="text/javascript" src="javascripts/communicator_scripts/web_viewer_ui.js?v=latest" id="hwvUI"></script>
-  <script type="text/javascript"
-    src="javascripts/communicator_scripts/communicator_server_integration.js?v=latest"></script>
-  <script type="text/javascript" src="javascripts/communicator_scripts/sample.js?v=latest"></script>
-
   <script type="text/javascript" src="javascripts/bim_demo.js?v=latest"></script>
   <script type="text/javascript" src="javascripts/jquery-ui-1.10.3.min.js"></script>
   <script type="text/javascript" src="javascripts/conversionService.js"></script>
+  <script type="text/javascript" src="javascripts/common/load_scripts.js"></script>
 
   <script>
     var viewer = null;
@@ -49,50 +40,11 @@
 
 
   <script type="module">
-
-    viewer = await startViewer()
-
-    viewer.setCallbacks({
-      sceneReady: function () {
-        viewer.getSelectionManager().setHighlightNodeSelection(false);
-        viewer.getSelectionManager().setHighlightLineElementSelection(false);
-        viewer.getSelectionManager().setHighlightFaceElementSelection(false);
-        viewer.getSelectionManager().setSelectParentIfSelected(false);
-        viewer.getView().setAmbientOcclusionEnabled(true);
-        viewer.getView().setAmbientOcclusionRadius(0.02);
-        viewer.getView().setBackfacesVisible(true);
-        viewer.setClientTimeout(60, 60);
-        var newCam = viewer.getView().getCamera();
-        newCam.setWidth(65000);
-        newCam.setHeight(65000);
-        newCam.setPosition(new Communicator.Point3(-53469, -23219, 30264));
-        newCam.setTarget(new Communicator.Point3(-636, -1873, 18152));
-        newCam.setUp(
-          new Communicator.Point3(
-            0.19277308590766995,
-            0.07788537845601243,
-            0.9781474352940858
-          )
-        );
-        viewer.getView().setCamera(newCam);
-        viewer.getView().setDrawMode(Communicator.DrawMode.Shaded);
-
-        var op = viewer.operatorManager.getOperator(Communicator.OperatorId.Navigate)
-        op.setOrbitFallbackMode(Communicator.OrbitFallbackMode.CameraTarget)
-
-        menuToggle()
-      },
-      modelStructureReady: function () {
-        initDemo();
-        getFloors(3);
-      },
-    });
-
-    // viewer.start();
-    window.onresize = function () {
-      viewer.resizeCanvas();
-    };
-    // });
+    await loadDynamicScript()
+    await loadIndividualScript("javascripts/communicator_scripts/web_viewer_ui.js")
+    await loadIndividualScript("javascripts/communicator_scripts/communicator_server_integration.js?v=latest")
+    await loadIndividualScript("javascripts/communicator_scripts/sample.js?v=latest")
+    initializeViewer()
   </script>
 </head>
 

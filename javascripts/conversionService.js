@@ -28,3 +28,59 @@ async function startViewer() {
         return viewer;
 
 }
+
+async function fetchVersionNumber() {
+        const conversionServiceURI = "https://csapi.techsoft3d.com";
+
+        let res = await fetch(conversionServiceURI + '/api/hcVersion');
+        var data = await res.json();
+        versionNumer = data;
+        
+        return data
+
+}
+
+
+
+async function initializeViewer() {
+        viewer = await startViewer()
+        viewer.setCallbacks({
+          sceneReady: function () {
+            viewer.getSelectionManager().setHighlightNodeSelection(false);
+            viewer.getSelectionManager().setHighlightLineElementSelection(false);
+            viewer.getSelectionManager().setHighlightFaceElementSelection(false);
+            viewer.getSelectionManager().setSelectParentIfSelected(false);
+            viewer.getView().setAmbientOcclusionEnabled(true);
+            viewer.getView().setAmbientOcclusionRadius(0.02);
+            viewer.getView().setBackfacesVisible(true);
+            viewer.setClientTimeout(60, 60);
+            var newCam = viewer.getView().getCamera();
+            newCam.setWidth(65000);
+            newCam.setHeight(65000);
+            newCam.setPosition(new Communicator.Point3(-53469, -23219, 30264));
+            newCam.setTarget(new Communicator.Point3(-636, -1873, 18152));
+            newCam.setUp(
+              new Communicator.Point3(
+                0.19277308590766995,
+                0.07788537845601243,
+                0.9781474352940858
+              )
+            );
+            viewer.getView().setCamera(newCam);
+            viewer.getView().setDrawMode(Communicator.DrawMode.Shaded);
+    
+            var op = viewer.operatorManager.getOperator(Communicator.OperatorId.Navigate)
+            op.setOrbitFallbackMode(Communicator.OrbitFallbackMode.CameraTarget)
+    
+            menuToggle()
+          },
+          modelStructureReady: function () {
+            initDemo();
+            getFloors(3);
+          },
+        });
+    
+        window.onresize = function () {
+          viewer.resizeCanvas();
+        };
+}
