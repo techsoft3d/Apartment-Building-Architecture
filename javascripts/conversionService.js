@@ -1,23 +1,14 @@
-var arboleda = "09edee8d-77e2-4356-84b1-5539ab6ca378"
+var arboleda = "1c8c285f-f5da-4ec2-9ea0-172ba5eda740"
 
 async function startViewer() {
-        const conversionServiceURI = "https://csapi.techsoft3d.com";
-
         var viewer;
 
-        let res = await fetch(conversionServiceURI + '/api/streamingSession');
-        var data = await res.json();
-        var endpointUriBeginning = 'ws://';
-
-        if(conversionServiceURI.substring(0, 5).includes("https")){
-                endpointUriBeginning = 'wss://'
-        }
-
-        await fetch(conversionServiceURI + '/api/enableStreamAccess/' + data.sessionid, { method: 'put', headers: { 'items': JSON.stringify([arboleda]) } });
-
+        let sessioninfo = await caasClient.getStreamingSession();
+        await caasClient.enableStreamAccess(sessioninfo.sessionid, [arboleda]);
+        
         viewer = new Communicator.WebViewer({
                 containerId: "viewer-container",
-                endpointUri: endpointUriBeginning + data.serverurl + ":" + data.port + '?token=' + data.sessionid,
+                endpointUri: sessioninfo.endpointUri,
                 model: "arboleda",
                 enginePath: "https://cdn.jsdelivr.net/gh/techsoft3d/hoops-web-viewer",
                 rendererType: 0
@@ -30,17 +21,10 @@ async function startViewer() {
 }
 
 async function fetchVersionNumber() {
-        const conversionServiceURI = "https://csapi.techsoft3d.com";
-
-        let res = await fetch(conversionServiceURI + '/api/hcVersion');
-        var data = await res.json();
-        versionNumer = data;
-        
-        return data
-
+  let data = await caasClient.getHCVersion();
+  versionNumer = data;        
+  return data
 }
-
-
 
 async function initializeViewer() {
         viewer = await startViewer()

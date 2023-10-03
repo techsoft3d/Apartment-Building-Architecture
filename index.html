@@ -32,7 +32,7 @@
   <script type="text/javascript" src="javascripts/jquery-ui-1.10.3.min.js"></script>
   <script type="text/javascript" src="javascripts/conversionService.js"></script>
   <script type="text/javascript" src="javascripts/common/load_scripts.js"></script>
-
+  <script type="text/javascript" src="javascripts/caas.min.js"></script>
   <script>
     var viewer = null;
     var ui = null;
@@ -40,6 +40,7 @@
 
 
   <script type="module">
+    caasClient.init('https://caas.techsoft3d.com', { accessKey: "651ae3b3b4571588031b0cc3" });
     await loadDynamicScript()
     await loadIndividualScript("javascripts/communicator_scripts/web_viewer_ui.js")
     await loadIndividualScript("javascripts/communicator_scripts/communicator_server_integration.js?v=latest")
