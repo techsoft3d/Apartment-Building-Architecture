@@ -10,7 +10,7 @@ async function startViewer() {
                 containerId: "viewer-container",
                 endpointUri: sessioninfo.endpointUri,
                 model: "arboleda",
-                enginePath: "https://cdn.jsdelivr.net/gh/techsoft3d/hoops-web-viewer",
+                enginePath: `https://cdn.jsdelivr.net/gh/techsoft3d/hoops-web-viewer@20${versionNumer}`,
                 rendererType: 0
         });
 
